@@ -28,7 +28,9 @@ export async function addShelbynetToWallet(): Promise<boolean> {
   try {
     // Check if wallet supports network management
     if (typeof window === "undefined" || !window.aptos) {
-      console.warn("Wallet not found");
+      if (process.env.NODE_ENV === 'development') {
+        console.warn("Wallet not found");
+      }
       return false;
     }
 
@@ -41,7 +43,9 @@ export async function addShelbynetToWallet(): Promise<boolean> {
         chainId: SHELBYNET_CONFIG.chainId,
         url: SHELBYNET_CONFIG.url,
       });
-      console.log("✅ Shelbynet added to wallet");
+      if (process.env.NODE_ENV === 'development') {
+        console.log("✅ Shelbynet added to wallet");
+      }
       return true;
     }
 
@@ -52,14 +56,20 @@ export async function addShelbynetToWallet(): Promise<boolean> {
         chainId: SHELBYNET_CONFIG.chainId,
         url: SHELBYNET_CONFIG.url,
       });
-      console.log("✅ Switched to Shelbynet");
+      if (process.env.NODE_ENV === 'development') {
+        console.log("✅ Switched to Shelbynet");
+      }
       return true;
     }
 
-    console.warn("Wallet does not support network management");
+    if (process.env.NODE_ENV === 'development') {
+      console.warn("Wallet does not support network management");
+    }
     return false;
   } catch (error) {
-    console.error("Failed to add Shelbynet to wallet:", error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error("Failed to add Shelbynet to wallet:", error);
+    }
     return false;
   }
 }
@@ -86,7 +96,9 @@ export async function isOnShelbynet(): Promise<boolean> {
 
     return false;
   } catch (error) {
-    console.error("Failed to check network:", error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error("Failed to check network:", error);
+    }
     return false;
   }
 }

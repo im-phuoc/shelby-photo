@@ -20,8 +20,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shelby Photo dApp",
-  description: "Decentralized photo storage with Aptos + Shelby",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
+  title: "Shelby Photo - Decentralized Photo Storage",
+  description: "Upload and store photos on decentralized storage powered by Shelby Protocol and Aptos blockchain. Secure, permanent, and censorship-resistant.",
+  keywords: ["Shelby", "Aptos", "decentralized storage", "photo storage", "blockchain", "web3", "dApp"],
+  authors: [{ name: "Dmitri | MegaNode" }],
+  openGraph: {
+    title: "Shelby Photo",
+    description: "Decentralized photo storage on Aptos blockchain",
+    url: "https://shelby-photo.vercel.app",
+    siteName: "Shelby Photo",
+    type: "website",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "Shelby Photo - Decentralized Photo Storage",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shelby Photo",
+    description: "Decentralized photo storage on Aptos blockchain",
+    images: ["/api/og"],
+  },
+  icons: {
+    icon: "/favicon-32x32.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

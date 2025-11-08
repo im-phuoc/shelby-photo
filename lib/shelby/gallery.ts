@@ -43,7 +43,9 @@ export async function getBlobsForAccount(
 
     return metadata;
   } catch (error) {
-    console.error('Failed to get account blobs:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Failed to get account blobs:', error);
+    }
     throw error;
   }
 }
