@@ -18,6 +18,8 @@
     "@radix-ui/react-slot": "^1.2.4",
     "@shelby-protocol/sdk": "^0.0.5",
     "@tanstack/react-query": "^5.90.7",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "cacheable-request": "^13.0.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
