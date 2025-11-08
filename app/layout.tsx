@@ -6,6 +6,9 @@ import { AutoConnectProvider } from "@/components/AutoConnectProvider";
 import { ReactQueryClientProvider } from "@/components/ReactQueryClientProvider";
 import { TransactionSubmitterProvider } from "@/components/TransactionSubmitterProvider";
 import { WalletProvider } from "@/components/WalletProvider";
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 // import { ShelbyProvider } from "@/components/ShelbyProvider"; // DISABLED FOR TESTING
 import { Toaster } from "@/components/ui/sonner";
 
@@ -73,6 +76,8 @@ export default function RootLayout({
               <TransactionSubmitterProvider>
                 <WalletProvider>
                   {children}
+                  <Analytics />
+                  <SpeedInsights />
                   <Toaster />
                 </WalletProvider>
               </TransactionSubmitterProvider>
